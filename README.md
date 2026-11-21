@@ -21,7 +21,7 @@
 ## 目录结构
 
 ```
-fashion-tryon/
+ai-fitting-room/
 ├── miniprogram/                 微信小程序（原生）
 │   ├── config.js                API 地址、H5 试穿页地址
 │   └── pages/
@@ -38,7 +38,7 @@ fashion-tryon/
 ## 本地运行
 
 ```bash
-cd fashion-tryon/server
+cd server
 cp .env.example .env     # 不填 DECART_API_KEY = 演示模式（只显示摄像头原画，用来联调页面）
 npm install
 npm start                # 会先打包 H5，然后启动 http://localhost:3000
@@ -46,7 +46,7 @@ npm start                # 会先打包 H5，然后启动 http://localhost:3000
 
 - 电脑浏览器直接打开 `http://localhost:3000/tryon/?id=t001` 就能看到试穿页（localhost 允许用摄像头）。
 - 在 `.env` 填上 [Decart 平台](https://platform.decart.ai) 的 API Key 后，就是真正的 AI 实时试穿。
-- 小程序：微信开发者工具导入 `fashion-tryon/miniprogram`，勾选“不校验合法域名”。**web-view 里的摄像头必须真机 + https 测试**（可用内网穿透得到 https 地址，填到 `config.js`）。
+- 小程序：微信开发者工具导入 `miniprogram`，勾选“不校验合法域名”。**web-view 里的摄像头必须真机 + https 测试**（可用内网穿透得到 https 地址，填到 `config.js`）。
 
 ## ⚠️ 面向国内用户，上线前必须先解决的三件事
 
