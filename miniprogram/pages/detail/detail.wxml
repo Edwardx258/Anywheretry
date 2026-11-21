@@ -7,19 +7,14 @@
   </view>
 
   <view class="tryon-box">
-    <view class="tryon-title">试穿一下</view>
     <view class="tryon-opt" bindtap="goLive">
-      <view class="opt-name">📷 实时预览</view>
-      <view class="opt-desc">打开摄像头，衣服实时“贴”在身上，快速看搭配</view>
-    </view>
-    <view class="tryon-opt" bindtap="goTryOn">
-      <view class="opt-name">✨ AI 高清试穿</view>
-      <view class="opt-desc">上传一张全身照，约 20 秒生成逼真上身效果</view>
+      <view class="opt-name">📷 AI 实时试穿</view>
+      <view class="opt-desc">打开摄像头，衣服实时“穿”在你身上，转身抬手都会跟着动，还能一键切换其他款式</view>
     </view>
   </view>
 
   <view class="bar">
-    <button class="btn-ghost" bindtap="goTryOn">AI 试穿</button>
+    <button class="btn-ghost" bindtap="goLive">实时试穿</button>
     <button class="btn-primary" bindtap="buy">立即购买</button>
   </view>
 </block>

@@ -15,42 +15,11 @@ function request(path, { method = 'GET', data } = {}) {
   });
 }
 
-function uploadPhoto(filePath) {
-  return new Promise((resolve, reject) => {
-    wx.uploadFile({
-      url: API_BASE + '/api/upload',
-      filePath,
-      name: 'file',
-      success: (res) => {
-        let body = {};
-        try { body = JSON.parse(res.data); } catch (e) { /* ignore */ }
-        if (res.statusCode === 200 && body.id) resolve(body);
-        else reject(new Error(body.error || '上传失败'));
-      },
-      fail: () => reject(new Error('上传失败，请检查网络')),
-    });
-  });
-}
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-// 发起试衣并轮询直到出结果（通常 10~30 秒）
-async function tryOn(productId, photoId, { onProgress, timeoutMs = 120000 } = {}) {
-  const { jobId } = await request('/api/tryon', { method: 'POST', data: { productId, photoId } });
-  const start = Date.now();
-  while (Date.now() - start < timeoutMs) {
-    await sleep(2500);
-    const r = await request(`/api/tryon/${jobId}`);
-    if (onProgress) onProgress(r.status, Date.now() - start);
-    if (r.status === 'succeeded') return r.imageUrl;
-    if (r.status === 'failed') throw new Error(r.error || '生成失败');
-  }
-  throw new Error('生成超时，请稍后再试');
-}
+// 商品图在后端是相对路径，这里补全成完整地址
+const withBase = (p) => ({ ...p, cover: API_BASE + p.cover, garmentImage: API_BASE + p.garmentImage });
 
 module.exports = {
-  getProducts: (category) => request('/api/products' + (category ? `?category=${category}` : '')),
-  getProduct: (id) => request(`/api/products/${id}`),
-  uploadPhoto,
-  tryOn,
+  getProducts: (category) =>
+    request('/api/products' + (category ? `?category=${category}` : '')).then((list) => list.map(withBase)),
+  getProduct: (id) => request(`/api/products/${id}`).then(withBase),
 };

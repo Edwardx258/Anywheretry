@@ -11,14 +11,9 @@ Page({
     }
   },
 
-  // 实时预览：摄像头 + 人体检测，衣服实时贴合
+  // 实时试穿：打开摄像头，AI 实时把衣服“穿”到视频里的你身上
   goLive() {
     wx.navigateTo({ url: `/pages/live/live?id=${this.data.product.id}` });
-  },
-
-  // AI 高清试穿：上传照片，生成逼真的上身效果图
-  goTryOn() {
-    wx.navigateTo({ url: `/pages/tryon/tryon?id=${this.data.product.id}` });
   },
 
   buy() {

@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/detail/detail",
-    "pages/tryon/tryon",
     "pages/live/live"
   ],
   "window": {
@@ -11,10 +10,6 @@
     "navigationBarTextStyle": "black",
     "backgroundColor": "#f6f6f6"
   },
-  "permission": {
-    "scope.camera": { "desc": "用于实时试穿预览和拍摄试衣照片" }
-  },
-  "requiredPrivateInfos": [],
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

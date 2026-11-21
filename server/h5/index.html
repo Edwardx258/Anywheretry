@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <title>实时试穿</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- 微信 JS-SDK：在小程序 web-view 里用于返回、跳转商品页 -->
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+</head>
+<body>
+  <main id="stage">
+    <video id="video" playsinline webkit-playsinline muted autoplay></video>
+
+    <header class="top">
+      <div class="product" id="product"></div>
+      <div class="badges">
+        <span class="badge" id="aiBadge">AI 实时效果 · 仅供参考</span>
+        <span class="badge timer" id="timer" hidden></span>
+      </div>
+    </header>
+
+    <div class="status" id="status" hidden></div>
+
+    <!-- 开始前：说明 + 授权 -->
+    <section class="sheet" id="startSheet">
+      <h1>实时试穿</h1>
+      <p>打开摄像头，衣服会实时“穿”在你身上，转身、抬手都会跟着动。</p>
+      <ul>
+        <li>后退一点，让上半身或全身入镜</li>
+        <li>光线充足，背景简洁效果更好</li>
+        <li>可以随时在下方切换别的衣服</li>
+      </ul>
+      <label class="consent">
+        <input type="checkbox" id="consent" />
+        <span>我同意将摄像头画面实时发送至试穿服务用于生成试穿效果。画面包含人脸等敏感个人信息，仅用于本次实时试穿，服务结束即停止传输。</span>
+      </label>
+      <button class="primary" id="startBtn">开始实时试穿</button>
+    </section>
+
+    <!-- 结束后 -->
+    <section class="sheet" id="endSheet" hidden>
+      <h1 id="endTitle">试穿结束</h1>
+      <p id="endText"></p>
+      <button class="primary" id="againBtn">再试一次</button>
+      <button class="ghost" id="buyBtn2">去看看这件</button>
+    </section>
+
+    <footer class="bottom" id="controls" hidden>
+      <div class="rail" id="rail"></div>
+      <div class="actions">
+        <button class="round" id="flipBtn" aria-label="翻转摄像头">翻转</button>
+        <button class="buy" id="buyBtn">购买这件</button>
+        <button class="round" id="stopBtn" aria-label="结束试穿">结束</button>
+      </div>
+    </footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

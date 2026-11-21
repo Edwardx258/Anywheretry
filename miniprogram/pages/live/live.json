@@ -1,7 +1,1 @@
-{
-  "navigationBarTitleText": "实时试穿预览",
-  "navigationBarBackgroundColor": "#000000",
-  "navigationBarTextStyle": "white",
-  "backgroundColor": "#000000",
-  "disableScroll": true
-}
+{ "navigationBarTitleText": "实时试穿", "navigationBarBackgroundColor": "#000000", "navigationBarTextStyle": "white" }

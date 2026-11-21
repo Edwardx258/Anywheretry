@@ -1,20 +1,24 @@
 {
   "name": "fashion-tryon-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "服装商城 + AI 试衣 后端（为微信小程序提供 API）",
+  "description": "服装商城 + 实时视频 AI 试穿：小程序 API + H5 试穿页 + 实时会话令牌",
   "main": "src/index.js",
   "type": "commonjs",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "node --watch src/index.js"
+    "build:h5": "esbuild h5/app.js --bundle --format=esm --target=es2020,safari15 --minify --sourcemap --outfile=public/tryon/app.js && cp h5/index.html h5/style.css public/tryon/",
+    "start": "npm run build:h5 && node src/index.js",
+    "dev": "npm run build:h5 && node --watch src/index.js"
   },
   "dependencies": {
+    "@decartai/sdk": "0.2.14",
     "dotenv": "^16.4.5",
-    "express": "^4.21.2",
-    "multer": "^1.4.5-lts.1"
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.2"
   }
 }
