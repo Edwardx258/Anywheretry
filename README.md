@@ -21,7 +21,7 @@
 ## 目录结构
 
 ```
-ai-fitting-room/
+anywheretry/
 ├── miniprogram/                 微信小程序（原生）
 │   ├── config.js                API 地址、H5 试穿页地址
 │   └── pages/
