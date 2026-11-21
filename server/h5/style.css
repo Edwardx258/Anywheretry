@@ -6,7 +6,8 @@ html, body { margin: 0; height: 100%; background: #000; color: var(--fg); font: 
 #video.mirror { transform: scaleX(-1); }
 
 .top { position: absolute; top: 0; left: 0; right: 0; padding: calc(12px + env(safe-area-inset-top)) 16px 24px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; background: linear-gradient(rgba(0,0,0,.5), transparent); }
-.product { font-size: 14px; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+.back { flex: none; width: 32px; height: 32px; margin-right: -4px; border-radius: 50%; background: var(--dim); color: var(--fg); text-decoration: none; font-size: 24px; line-height: 30px; text-align: center; }
+.product { flex: 1; font-size: 14px; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
 .product b { display: block; font-size: 16px; }
 .badges { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
 .badge { font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--dim); white-space: nowrap; }

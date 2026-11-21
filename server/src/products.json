@@ -7,7 +7,13 @@
     "cover": "/garments/t001.jpg",
     "garmentImage": "/garments/t001.jpg",
     "tryonPrompt": "a plain white crew-neck cotton t-shirt",
-    "description": "100% 纯棉，宽松版型，四季百搭。"
+    "description": "100% 纯棉，宽松版型，四季百搭。",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
   },
   {
     "id": "t002",
@@ -17,7 +23,13 @@
     "cover": "/garments/t002.jpg",
     "garmentImage": "/garments/t002.jpg",
     "tryonPrompt": "a light blue and white striped button-up shirt",
-    "description": "蓝白细条纹，通勤休闲两相宜。"
+    "description": "蓝白细条纹，通勤休闲两相宜。",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
   },
   {
     "id": "b001",
@@ -27,7 +39,14 @@
     "cover": "/garments/b001.jpg",
     "garmentImage": "/garments/b001.jpg",
     "tryonPrompt": "high-waisted straight-leg blue denim jeans",
-    "description": "微弹面料，显高显瘦。"
+    "description": "微弹面料，显高显瘦。",
+    "sizes": [
+      "26",
+      "27",
+      "28",
+      "29",
+      "30"
+    ]
   },
   {
     "id": "d001",
@@ -37,6 +56,11 @@
     "cover": "/garments/d001.jpg",
     "garmentImage": "/garments/d001.jpg",
     "tryonPrompt": "a pink floral chiffon midi dress with a fitted waist",
-    "description": "春夏新款，雪纺面料，轻盈透气。"
+    "description": "春夏新款，雪纺面料，轻盈透气。",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
   }
 ]

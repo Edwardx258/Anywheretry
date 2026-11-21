@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>AI 试衣间</title>
+  <meta name="description" content="打开摄像头，衣服实时穿在你身上。" />
+  <link rel="stylesheet" href="/store.css" />
+</head>
+<body data-page="home">
+  <header class="nav">
+    <a class="brand" href="/" data-shop-name>AI 试衣间</a>
+    <button class="nav-btn" data-open-order>微信下单</button>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>买之前，先“穿”上看看</h1>
+        <p>打开摄像头，衣服实时穿在你身上。转身、抬手都会跟着动，点一下就能换下一件。</p>
+        <a class="btn primary" id="heroTry" href="/tryon/">📷 立即实时试穿</a>
+      </div>
+    </section>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab on" data-cat="">全部</button>
+      <button class="tab" data-cat="top">上装</button>
+      <button class="tab" data-cat="bottom">下装</button>
+      <button class="tab" data-cat="dress">连衣裙</button>
+    </nav>
+
+    <section class="grid" id="grid" aria-live="polite"></section>
+    <p class="empty" id="empty" hidden>暂无商品</p>
+  </main>
+
+  <footer class="foot">
+    <span data-shop-name>AI 试衣间</span> · 试穿效果由 AI 实时生成，仅供参考
+  </footer>
+
+  <div id="orderModal" class="modal" hidden></div>
+  <script src="/store.js"></script>
+</body>
+</html>

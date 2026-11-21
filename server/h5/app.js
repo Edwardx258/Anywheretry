@@ -4,7 +4,7 @@
 //      把摄像头画面实时送到 Lucy VTON 模型 → 拿回“已经穿上这件衣服”的视频流直接播放。
 //      切换衣服只需 set({ image })，不用重连。
 //
-// 运行环境：微信小程序 <web-view>（主要）或任意手机浏览器。需要 https + 摄像头权限。
+// 运行环境：手机/电脑浏览器（主要），也可嵌入微信小程序 <web-view>。需要 https + 摄像头权限。
 // 未配置 DECART_API_KEY 时进入“演示模式”：只显示摄像头原画，用来联调页面流程。
 
 import { createDecartClient, models } from '@decartai/sdk';
@@ -15,12 +15,13 @@ const els = {
   aiBadge: $('aiBadge'), startSheet: $('startSheet'), endSheet: $('endSheet'),
   endTitle: $('endTitle'), endText: $('endText'), consent: $('consent'),
   startBtn: $('startBtn'), againBtn: $('againBtn'), controls: $('controls'), rail: $('rail'),
-  flipBtn: $('flipBtn'), stopBtn: $('stopBtn'), buyBtn: $('buyBtn'), buyBtn2: $('buyBtn2'),
+  flipBtn: $('flipBtn'), stopBtn: $('stopBtn'), buyBtn: $('buyBtn'), buyBtn2: $('buyBtn2'), back: $('back'),
 };
 
 const params = new URLSearchParams(location.search);
 const CONSENT_KEY = 'live_tryon_consent_v1';
 const inMiniProgram = () => window.__wxjs_environment === 'miniprogram';
+const inWeChatBrowser = /MicroMessenger/i.test(navigator.userAgent);
 
 const state = {
   products: [],
@@ -51,12 +52,17 @@ async function init() {
 
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.RTCPeerConnection) {
     els.startBtn.disabled = true;
-    showStatus('当前环境不支持实时视频，请升级微信或系统版本后再试');
+    showStatus(
+      inWeChatBrowser && !inMiniProgram()
+        ? '微信内置浏览器暂不支持摄像头试穿：请点右上角「···」，选择「在浏览器打开」'
+        : '当前浏览器不支持实时视频，请换用最新版 Safari / Chrome 再试'
+    );
   }
 }
 
 function renderProduct() {
   const p = state.current;
+  els.back.href = `/product.html?id=${encodeURIComponent(p.id)}`;
   els.product.innerHTML = '';
   const b = document.createElement('b');
   b.textContent = p.name;
@@ -208,7 +214,11 @@ async function openCamera() {
     });
   } catch (e) {
     if (e && (e.name === 'NotAllowedError' || e.name === 'SecurityError')) {
-      throw new Error('没有摄像头权限。请在微信「设置 → 隐私 → 系统权限」或手机设置中允许微信使用摄像头');
+      throw new Error(
+        inWeChatBrowser
+          ? '没有摄像头权限。请在手机设置中允许微信使用摄像头，或点右上角「···」选择「在浏览器打开」'
+          : '没有摄像头权限。请在浏览器地址栏或手机设置中允许本网站使用摄像头'
+      );
     }
     throw new Error('摄像头打开失败：' + (e && e.message ? e.message : '未知错误'));
   }
@@ -268,12 +278,13 @@ async function switchGarment(p) {
 
 // ---------- 购买 / 返回小程序 ----------
 function goBuy() {
-  const id = state.current.id;
+  const id = encodeURIComponent(state.current.id);
+  stop('试穿结束', '');
   if (inMiniProgram() && window.wx && wx.miniProgram) {
-    stop('试穿结束', '');
-    wx.miniProgram.redirectTo({ url: `/pages/detail/detail?id=${encodeURIComponent(id)}&from=tryon` });
+    wx.miniProgram.redirectTo({ url: `/pages/detail/detail?id=${id}&from=tryon` });
   } else {
-    showStatus('请在小程序中下单', 2000);
+    // 网站：回到商品页并直接弹出“微信下单”
+    location.href = `/product.html?id=${id}&order=1`;
   }
 }
 
