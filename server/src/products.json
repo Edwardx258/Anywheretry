@@ -1,0 +1,38 @@
+[
+  {
+    "id": "t001",
+    "name": "基础款纯棉白T恤",
+    "price": 79,
+    "category": "top",
+    "cover": "/garments/t001.jpg",
+    "garmentImage": "/garments/t001.jpg",
+    "description": "100% 纯棉，宽松版型，四季百搭。"
+  },
+  {
+    "id": "t002",
+    "name": "法式条纹衬衫",
+    "price": 169,
+    "category": "top",
+    "cover": "/garments/t002.jpg",
+    "garmentImage": "/garments/t002.jpg",
+    "description": "蓝白细条纹，通勤休闲两相宜。"
+  },
+  {
+    "id": "b001",
+    "name": "高腰直筒牛仔裤",
+    "price": 199,
+    "category": "bottom",
+    "cover": "/garments/b001.jpg",
+    "garmentImage": "/garments/b001.jpg",
+    "description": "微弹面料，显高显瘦。"
+  },
+  {
+    "id": "d001",
+    "name": "碎花收腰连衣裙",
+    "price": 259,
+    "category": "dress",
+    "cover": "/garments/d001.jpg",
+    "garmentImage": "/garments/d001.jpg",
+    "description": "春夏新款，雪纺面料，轻盈透气。"
+  }
+]

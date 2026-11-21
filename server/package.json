@@ -1,0 +1,20 @@
+{
+  "name": "fashion-tryon-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "服装商城 + AI 试衣 后端（为微信小程序提供 API）",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}

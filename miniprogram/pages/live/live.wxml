@@ -1,0 +1,20 @@
+<view class="stage">
+  <camera class="camera" device-position="{{devicePosition}}" flash="off"
+          frame-size="medium" resolution="medium" binderror="onCameraError" />
+  <!-- canvas 同层渲染叠在 camera 之上，绘制实时贴合的衣服 -->
+  <canvas type="2d" id="overlay" class="overlay" />
+
+  <view class="top-bar">
+    <text class="ai-tag">实时预览 · 效果示意</text>
+    <text wx:if="{{product}}" class="pname">{{product.name}} ¥{{product.price}}</text>
+  </view>
+
+  <view wx:if="{{hint}}" class="hint">{{hint}}</view>
+
+  <view class="bottom-bar">
+    <view class="round" bindtap="flip">翻转</view>
+    <view class="shutter" bindtap="capture"><view class="shutter-inner"></view></view>
+    <view class="round placeholder"></view>
+  </view>
+  <view class="shutter-label">拍照生成 AI 高清试穿</view>
+</view>

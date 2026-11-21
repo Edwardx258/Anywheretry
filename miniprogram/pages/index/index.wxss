@@ -1,0 +1,13 @@
+.banner { margin: 24rpx; padding: 36rpx; border-radius: 24rpx; background: linear-gradient(135deg, #222, #555); color: #fff; }
+.banner-title { font-size: 40rpx; font-weight: 600; }
+.banner-sub { margin-top: 12rpx; font-size: 24rpx; opacity: .8; }
+.tabs { display: flex; padding: 0 24rpx; gap: 16rpx; }
+.tab { padding: 10rpx 28rpx; border-radius: 32rpx; background: #fff; }
+.tab.on { background: #222; color: #fff; }
+.grid { display: flex; flex-wrap: wrap; padding: 24rpx 12rpx; }
+.card { width: calc(50% - 24rpx); margin: 12rpx; background: #fff; border-radius: 16rpx; overflow: hidden; }
+.cover { width: 100%; height: 440rpx; background: #eee; }
+.name { padding: 12rpx 16rpx 0; font-size: 26rpx; }
+.row { display: flex; justify-content: space-between; align-items: center; padding: 8rpx 16rpx 16rpx; }
+.try { font-size: 22rpx; color: #666; border: 1rpx solid #ccc; padding: 2rpx 10rpx; border-radius: 6rpx; }
+.empty { text-align: center; color: #999; padding: 80rpx; }

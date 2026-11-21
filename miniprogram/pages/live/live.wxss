@@ -1,0 +1,12 @@
+page { background: #000; height: 100%; }
+.stage { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+.camera, .overlay { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.top-bar { position: absolute; left: 24rpx; right: 24rpx; top: 24rpx; display: flex; justify-content: space-between; align-items: center; }
+.pname { color: #fff; font-size: 24rpx; text-shadow: 0 0 6rpx rgba(0,0,0,.6); }
+.hint { position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); padding: 16rpx 28rpx; border-radius: 12rpx; background: rgba(0,0,0,.55); color: #fff; font-size: 26rpx; white-space: nowrap; }
+.bottom-bar { position: absolute; left: 0; right: 0; bottom: calc(80rpx + env(safe-area-inset-bottom)); display: flex; justify-content: space-around; align-items: center; }
+.round { width: 96rpx; height: 96rpx; border-radius: 50%; background: rgba(255,255,255,.2); color: #fff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
+.round.placeholder { background: transparent; }
+.shutter { width: 140rpx; height: 140rpx; border-radius: 50%; border: 6rpx solid #fff; display: flex; align-items: center; justify-content: center; }
+.shutter-inner { width: 112rpx; height: 112rpx; border-radius: 50%; background: #fff; }
+.shutter-label { position: absolute; left: 0; right: 0; bottom: calc(30rpx + env(safe-area-inset-bottom)); text-align: center; color: #fff; font-size: 24rpx; }

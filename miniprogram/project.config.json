@@ -1,0 +1,15 @@
+{
+  "description": "服装商城 + AI 试衣小程序",
+  "appid": "touristappid",
+  "projectname": "fashion-tryon",
+  "compileType": "miniprogram",
+  "libVersion": "3.4.0",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": false
+  },
+  "condition": {}
+}

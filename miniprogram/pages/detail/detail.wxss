@@ -1,0 +1,12 @@
+.hero { width: 100%; height: 900rpx; background: #fff; }
+.info { background: #fff; padding: 24rpx 32rpx; }
+.big { font-size: 44rpx; }
+.title { font-size: 32rpx; font-weight: 600; margin-top: 8rpx; }
+.desc { color: #666; margin-top: 12rpx; }
+.tryon-box { background: #fff; margin: 20rpx 0; padding: 24rpx 32rpx 140rpx; }
+.tryon-title { font-weight: 600; margin-bottom: 16rpx; }
+.tryon-opt { padding: 24rpx; border-radius: 16rpx; background: #f6f6f6; margin-bottom: 16rpx; }
+.opt-name { font-size: 30rpx; font-weight: 600; }
+.opt-desc { font-size: 24rpx; color: #666; margin-top: 6rpx; }
+.bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 20rpx; padding: 20rpx 32rpx calc(20rpx + env(safe-area-inset-bottom)); background: #fff; box-shadow: 0 -2rpx 12rpx rgba(0,0,0,.06); }
+.bar button { flex: 1; margin: 0; }

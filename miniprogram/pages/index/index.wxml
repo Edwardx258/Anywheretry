@@ -1,0 +1,21 @@
+<view class="banner">
+  <view class="banner-title">上身效果，一拍即知</view>
+  <view class="banner-sub">实时预览 + AI 高清试穿，买之前先“穿”一下</view>
+</view>
+
+<view class="tabs">
+  <view wx:for="{{tabs}}" wx:key="key" class="tab {{active === item.key ? 'on' : ''}}"
+        data-key="{{item.key}}" bindtap="onTab">{{item.label}}</view>
+</view>
+
+<view class="grid">
+  <view wx:for="{{products}}" wx:key="id" class="card" data-id="{{item.id}}" bindtap="openDetail">
+    <image class="cover" src="{{item.cover}}" mode="aspectFill" lazy-load />
+    <view class="name">{{item.name}}</view>
+    <view class="row">
+      <text class="price">¥{{item.price}}</text>
+      <text class="try">可试穿</text>
+    </view>
+  </view>
+</view>
+<view wx:if="{{!loading && products.length === 0}}" class="empty">暂无商品</view>
