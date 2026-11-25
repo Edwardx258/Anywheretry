@@ -9,7 +9,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "build:h5": "esbuild h5/app.js --bundle --format=esm --target=es2020,safari15 --minify --sourcemap --outfile=public/tryon/app.js && cp h5/index.html h5/style.css public/tryon/",
+    "build:h5": "esbuild h5/app.js h5/check.js --bundle --format=esm --target=es2020,safari15 --minify --sourcemap --outdir=public/tryon && cp h5/index.html h5/check.html h5/style.css public/tryon/",
     "start": "npm run build:h5 && node src/index.js",
     "dev": "npm run build:h5 && node --watch src/index.js"
   },

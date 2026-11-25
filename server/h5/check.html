@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>实时试穿网络检测</title>
+  <style>
+    :root { --ok: #1a7f37; --warn: #b26b00; --bad: #c62828; --muted: #6e6e73; --line: #e5e5e5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f6f5f3; color: #1d1d1f; font: 15px/1.6 -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    main { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    .sub { color: var(--muted); margin: 0 0 16px; font-size: 14px; }
+    .card { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 12px; }
+    .card h2 { font-size: 16px; margin: 0 0 6px; display: flex; justify-content: space-between; gap: 8px; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .res { margin-top: 8px; font-size: 14px; white-space: pre-line; }
+    .pill { font-size: 12px; padding: 1px 8px; border-radius: 10px; background: #eee; color: var(--muted); white-space: nowrap; font-weight: 400; }
+    .ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+    .pill.ok { background: #e6f4ea; } .pill.warn { background: #fff4e0; } .pill.bad { background: #fdecea; }
+    button { font: inherit; border: 0; border-radius: 22px; height: 44px; padding: 0 20px; cursor: pointer; }
+    .primary { background: #1d1d1f; color: #fff; width: 100%; }
+    .ghost { background: #fff; border: 1px solid #1d1d1f; width: 100%; margin-top: 8px; }
+    button:disabled { opacity: .5; }
+    #verdict { font-size: 16px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>实时试穿 · 网络检测</h1>
+    <p class="sub">在国内的手机或电脑上打开本页，测试能否流畅使用 AI 实时试穿。建议分别用 Wi-Fi 和 4G/5G 各测一次。</p>
+
+    <div class="card">
+      <h2>① 环境 <span class="pill" id="s-env">待检测</span></h2>
+      <div class="res" id="r-env"></div>
+    </div>
+    <div class="card">
+      <h2>② 能否访问试穿服务器 <span class="pill" id="s-http">待检测</span></h2>
+      <p>测试到 Decart 服务器（境外）的 HTTPS 连接和往返耗时。</p>
+      <div class="res" id="r-http"></div>
+    </div>
+    <div class="card">
+      <h2>③ 实时视频通道（UDP） <span class="pill" id="s-udp">待检测</span></h2>
+      <p>实时视频走 WebRTC/UDP。被限制时只能走中转，延迟会更高。</p>
+      <div class="res" id="r-udp"></div>
+    </div>
+    <button class="primary" id="basicBtn">开始免费检测（①②③）</button>
+
+    <div class="card" style="margin-top:16px">
+      <h2>④ 真实试穿延迟 <span class="pill" id="s-deep">未测试</span></h2>
+      <p>真正连上 AI 模型约 12 秒，用测试画面测出“动作 → 看到换装画面”的真实延迟。会产生约 0.24 美元费用，并占用一次当日试穿次数。</p>
+      <div class="res" id="r-deep"></div>
+    </div>
+    <button class="ghost" id="deepBtn">测试真实延迟（④，约 12 秒）</button>
+
+    <div class="card" style="margin-top:16px">
+      <h2>结论</h2>
+      <div class="res" id="verdict">请先开始检测</div>
+    </div>
+    <button class="ghost" id="copyBtn">复制检测结果（发给开发者）</button>
+  </main>
+  <script type="module" src="check.js"></script>
+</body>
+</html>
